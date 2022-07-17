@@ -1,12 +1,29 @@
 spring:
   application:
     name: shopping-service
+    admin:
+      enabled: true
   cloud:
     config:
       uri: http://localhost:8081
       username: root
       password: s3cr3t
+# Admin Service URL
+# spring.boot.admin.client.url=http://localhost:8089
   boot:
     admin:
       client:
-        url: http://localhost:8086
+        url: http://localhost:8089
+
+#LOG combinated Local and Remote GITHUB
+#logging.file=adminserver.log  DEPRECATED
+logging:
+  file:
+    name: /tmp/feignshopping.log
+#  pattern:  on GitHub
+#    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+
+#management  on GitHub
+#management.endpoints.enabled-by-default: true
+#management.web.exposure:include: hystrix.stream, "*"
+#FALTA health.show-details: always
